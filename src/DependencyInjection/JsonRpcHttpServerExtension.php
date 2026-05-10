@@ -45,7 +45,7 @@ class JsonRpcHttpServerExtension implements ExtensionInterface, CompilerPassInte
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $this->compileAndProcessConfigurations($configs, $container);
 
@@ -62,7 +62,7 @@ class JsonRpcHttpServerExtension implements ExtensionInterface, CompilerPassInte
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $this->bindJsonRpcServerDispatcher($container);
         $this->bindValidatorIfDefined($container);
@@ -89,7 +89,7 @@ class JsonRpcHttpServerExtension implements ExtensionInterface, CompilerPassInte
     /**
      * {@inheritdoc}
      */
-    public function getAlias()
+    public function getAlias(): string
     {
         return self::EXTENSION_IDENTIFIER;
     }
